@@ -39,7 +39,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+In this section, both a Domain Controller VM (DC-1) and Client  VM (Client-1) are created. The NIC private IP of DC-1 is also set to static in order to keep the IP address the same, so the client can always access the domain. 
 </p>
 <br />
 
@@ -49,7 +49,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+When attempting to ping DC-1 from Client-1, we recieve a "request timed out" message. To fix this, ICMPv4 under DC-1's local firewall had to be enabled, as ping runs the protocol ICMP.  
 </p>
 <br />
 
@@ -59,7 +59,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Next, Active Directory is installed on the Server Manager. Open up Server Manager --> Add Roles --> Install Active Directory --> Promote as a Domain Controller --> Setup New Forest. Then we name the DC mydomain.com.  
 </p>
 <br />
 
@@ -69,7 +69,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+The next goal is to create an admin in Active Directory. Under the "_EMPLOYEES" tab, Jane will represent be the new employee, while Jane will also get admin access. The additional step shown above is where jane actually recieves the admin powers. Just placing her into the admin OU doesn't grant her those abilities, only by right clicking --> properties --> "member of", does she actually become an admin. 
 </p>
 <br />
 
@@ -79,7 +79,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Non-administrative users also need Remote Desktop access in order to log into the Domain from any "integrated" computer. Normally, one would do this with a Group Policy, which allows one to change many devices at once, but not in this specific case. 
 </p>
 <br />
 
@@ -89,7 +89,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+In between these last two images, we formed many new users in PowerShell_ise in order to test whether or not our intergrating between systems was successful. As seen above, the operation was successful, as Mr. Bog Fer was able to log into Client-1 using mydomain.com\bog.fer, meaning our Active Directory is functional!
 </p>
 <br />
 
