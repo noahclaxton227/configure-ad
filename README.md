@@ -69,7 +69,7 @@ Next, Active Directory is installed on the Server Manager. Open up Server Manage
 
 </p>
 <p>
-The next goal is to create an admin in Active Directory. Under the "_EMPLOYEES" tab, Jane will represent be the new employee, while Jane will also get admin access. The additional step shown above is where jane actually recieves the admin powers. Just placing her into the admin OU doesn't grant her those abilities, only by right clicking --> properties --> "member of", does she actually become an admin. 
+The next goal is to create an admin in Active Directory. Under the "_EMPLOYEES" tab, Jane will represent be the new employee, while Jane will also get admin access. The additional step shown above is where Jane actually recieves the admin powers. Just placing her into the admin OU doesn't grant her those abilities, only by right clicking --> properties --> "member of", does she actually become an admin. 
 </p>
 <br />
 
